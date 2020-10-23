@@ -20,7 +20,7 @@ namespace Kiwoom
         private KiwoomManager kiwoom;
         private TelegramManager bot;
         private String api;
-        private long chatId;
+
         public Kiwoom()
         {
             InitializeComponent();

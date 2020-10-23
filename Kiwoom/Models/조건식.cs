@@ -16,8 +16,9 @@ namespace Kiwoom.Models
         [JsonProperty(PropertyName = "error")]
         public string Error { get; set; }
 
-        public string 번호 { get; set; }
+        public int 번호 { get; set; }
         public string 이름 { get; set; }
+
         public Boolean 실시간등록여부 = false;
         public double lasRequestTime;
 
@@ -32,7 +33,7 @@ namespace Kiwoom.Models
                 var tokens = condition.Split('^');
 
                 var data = new 조건식();
-                data.번호 = tokens[0];
+                data.번호 = int.Parse(tokens[0]);
                 data.이름 = tokens[1];
                 returnData.Add(data);
             }
