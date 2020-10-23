@@ -19,21 +19,30 @@ namespace Kiwoom.Network
     public class TelegramManager
     {
         private TelegramBotClient bot;
-        private KiwoomManager Kiwoom;
+        private KiwoomManager kiwoom;
         private ChatId chatId;
 
-        public TelegramManager(string accessToken, KiwoomManager kiwoom)
+        public TelegramManager(string accessToken)
         {
             bot = new Telegram.Bot.TelegramBotClient(accessToken);
-
             bot.OnMessage += Bot_OnMessage;
             bot.StartReceiving();
+        }
+
+        public void LinkWithKiwoom( KiwoomManager kiwoomManager)
+        {
+            kiwoom = kiwoomManager;
         }
 
         private async void Bot_OnMessage(object sender, Telegram.Bot.Args.MessageEventArgs e)
         {
             var message = e.Message;
             if (message == null || message.Type != MessageType.Text) return;
+
+            if (message.Text.StartsWith("/로그인"))
+            {
+                kiwoom.CommConnect();
+            }
 
             if (message.Text.StartsWith("/알림시작"))
             {
@@ -43,14 +52,19 @@ namespace Kiwoom.Network
 
             if (message.Text.StartsWith("/알림중지"))
             {
-                chatId = null;
                 await SendMessage("실시간 알림을 중지합니다.");
+                chatId = null;
             }
+
+            
         }
 
         public async Task SendMessage(string data)
         {
-            await bot.SendTextMessageAsync(chatId, data);
+            if(chatId != null)
+            {
+                await bot.SendTextMessageAsync(chatId, data);
+            }
         }
     }
     

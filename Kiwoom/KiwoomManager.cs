@@ -17,6 +17,8 @@ namespace Kiwoom
     public class KiwoomManager
     {
         private AxKHOpenAPILib.AxKHOpenAPI api;
+        private TelegramManager bot;
+
         private String telegramToken;
 
         private List<조건식> 조건식목록;
@@ -27,13 +29,17 @@ namespace Kiwoom
         {
             this.api = api;
             //this.bot = new TelegramManager(telegramToken, this)
-
             api.OnEventConnect += onEventConnect;
             api.OnReceiveTrData += onReceiveTrData;
             api.OnReceiveTrCondition += onReceiveTrCondition;
             api.OnReceiveRealData += onReceiveRealData;
             api.OnReceiveConditionVer += onReceiveConditionVer;
             api.OnReceiveRealCondition += onReceiveRealCondition;
+        }
+
+        public void LinkWithTelegram(TelegramManager telegramManager)
+        {
+            bot = telegramManager;
         }
 
         private void onReceiveTrData(object sender, _DKHOpenAPIEvents_OnReceiveTrDataEvent e)
@@ -162,9 +168,10 @@ namespace Kiwoom
         {
             api.GetConditionLoad();
         }
-        public void CommConnect()
+        public async void CommConnect()
         {
             api.CommConnect();
+            await bot.SendMessage("양방향참조?");
         }
     }
 }

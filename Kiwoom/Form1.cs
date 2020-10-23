@@ -24,9 +24,14 @@ namespace Kiwoom
         public Kiwoom()
         {
             InitializeComponent();
+
             System.Net.ServicePointManager.SecurityProtocol |= System.Net.SecurityProtocolType.Tls11 | System.Net.SecurityProtocolType.Tls12;
+
             kiwoom = new KiwoomManager(this.axKHOpenAPI1);
-            bot = new TelegramManager("1342784362:AAGwyO_SMPawMNvV1b8YsuXSyQUjE4FZNgk", kiwoom);
+            bot = new TelegramManager("1342784362:AAGwyO_SMPawMNvV1b8YsuXSyQUjE4FZNgk");
+
+            kiwoom.LinkWithTelegram(bot);
+            bot.LinkWithKiwoom(kiwoom);
         }
 
 
