@@ -68,12 +68,12 @@ namespace Kiwoom.Network
                 chatId = null;
             }
 
-            else if (message.Text.StartsWith("/조건식리스트"))
+            else if (message.Text.StartsWith("/조건식리스트") || message.Text.StartsWith("/조건식"))
             {
                 kiwoom.GetUserJogun();
             }
 
-            else if (message.Text.StartsWith("/감시리스트"))
+            else if (message.Text.StartsWith("/감시리스트") || message.Text.StartsWith("/감시"))
             {
                 kiwoom.GetWatchJogun();
             }
@@ -88,9 +88,23 @@ namespace Kiwoom.Network
                 kiwoom.StopJogun(int.Parse(Regex.Replace(message.Text, "/중단 ", "")));
             }
 
-            else if (message.Text.StartsWith("/help")) 
+            else if (message.Text.StartsWith("/help") || message.Text.StartsWith("/start") || message.Text.StartsWith("/시작") || message.Text.StartsWith("/도움말") || message.Text.StartsWith("/명령어")) 
             {
-                String 도움말 = "[생활비 벌자 도움말]\n";
+                String 도움말 = "[생활비 벌자 명령어]\n\n";
+                도움말 += "[연결 및 로그인 관련]\n";
+                도움말 += "'/로그인' : 자신의 컴퓨터로 로그인하도록 명령합니다.\n";
+                도움말 += "'/연결상태' : 자신의 컴퓨터와 키움 OpenApi의 연결상태를 알려준다.\n";
+                도움말 += "'/알림시작' : Telegram 알림을 시작합니다\n'/알림종료' : Telegram 알림을 종료합니다.\n\n";
+
+                도움말 += "[조건식 관련]\n";
+                도움말 += "'/조건식 /조건식리스트' : 사용자가 HTS에 등록해둔 조건식을 불러온다.\n";
+                도움말 += "'/감시 /감시리스트' : 사용자가 실시간 감지를 실행한 조건식을 불러온다.\n";
+                도움말 += "'/실행 (조건식 번호)' : 해당 조건식 번호 조건식의 실시간 감지를 실행한다.\nex) /실행 2\n";
+                도움말 += "'/중단 (조건식 번호)' : 해당 조건식 번호 조건식의 실시간 감지를 중단한다.\nex) /중단 2\n\n";
+                도움말 += "$$주의$$\n";
+                도움말 += "'*알림을 받고 싶다면, 항상 '/알림시작'을 해주세요!*'\n\n";
+                도움말 += "$$꿀팁$$\n";
+                도움말 += "조건식을 불러오기 귀찮다면, /실행 (숫자)를 두번 실행하자.";
                 await SendMessage(도움말);
             }
 

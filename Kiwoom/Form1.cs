@@ -10,8 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-
-
+using AdsJumboWinForm;
 
 namespace Kiwoom
 {
@@ -20,6 +19,9 @@ namespace Kiwoom
         private KiwoomManager kiwoom;
         private TelegramManager bot;
         private String api;
+ 
+
+
 
         public Kiwoom()
         {
@@ -28,16 +30,15 @@ namespace Kiwoom
             System.Net.ServicePointManager.SecurityProtocol |= System.Net.SecurityProtocolType.Tls11 | System.Net.SecurityProtocolType.Tls12;
 
             kiwoom = new KiwoomManager(this.axKHOpenAPI1);
+            //bot = new TelegramManager("1345119034:AAEvGVBDn0vAHEm720Rb-sA-COgTzN6yb3A");
             bot = new TelegramManager("1342784362:AAGwyO_SMPawMNvV1b8YsuXSyQUjE4FZNgk");
 
-            kiwoom.LinkWithTelegram(bot);
-            bot.LinkWithKiwoom(kiwoom);
         }
 
 
         private void onClick로그인버튼(object sender, EventArgs e)
         {
-            kiwoom.CommConnect();
+           kiwoom.CommConnect();
         }
 
         private void onClick조건식가져오기(object sender, EventArgs e)
@@ -45,6 +46,12 @@ namespace Kiwoom
             kiwoom.GetUserJogun();
         }
 
+        private void Kiwoom_Load(object sender, EventArgs e)
+        {
+            kiwoom.LinkWithTelegram(bot);
+            bot.LinkWithKiwoom(kiwoom);
 
+            bannerAds1.ShowAd(728, 90, "7gq1czmtoxew");
+        }
     }
 }

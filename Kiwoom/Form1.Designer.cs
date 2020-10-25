@@ -29,48 +29,51 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Kiwoom));
-            this.axKHOpenAPI1 = new AxKHOpenAPILib.AxKHOpenAPI();
             this.로그인버튼 = new System.Windows.Forms.Button();
-            this.조건식가져오기 = new System.Windows.Forms.Button();
+            this.axKHOpenAPI1 = new AxKHOpenAPILib.AxKHOpenAPI();
+            this.bannerAds1 = new AdsJumboWinForm.BannerAds();
             ((System.ComponentModel.ISupportInitialize)(this.axKHOpenAPI1)).BeginInit();
             this.SuspendLayout();
             // 
-            // axKHOpenAPI1
-            // 
-            this.axKHOpenAPI1.Enabled = true;
-            this.axKHOpenAPI1.Location = new System.Drawing.Point(13, 13);
-            this.axKHOpenAPI1.Name = "axKHOpenAPI1";
-            this.axKHOpenAPI1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axKHOpenAPI1.OcxState")));
-            this.axKHOpenAPI1.Size = new System.Drawing.Size(100, 50);
-            this.axKHOpenAPI1.TabIndex = 0;
-            // 
             // 로그인버튼
             // 
-            this.로그인버튼.Location = new System.Drawing.Point(136, 13);
+            this.로그인버튼.Location = new System.Drawing.Point(192, 10);
             this.로그인버튼.Name = "로그인버튼";
-            this.로그인버튼.Size = new System.Drawing.Size(75, 23);
+            this.로그인버튼.Size = new System.Drawing.Size(93, 31);
             this.로그인버튼.TabIndex = 1;
             this.로그인버튼.Text = "로그인";
             this.로그인버튼.UseVisualStyleBackColor = true;
             this.로그인버튼.Click += new System.EventHandler(this.onClick로그인버튼);
             // 
-            // 조건식가져오기
+            // axKHOpenAPI1
             // 
-            this.조건식가져오기.Location = new System.Drawing.Point(136, 42);
-            this.조건식가져오기.Name = "조건식가져오기";
-            this.조건식가져오기.Size = new System.Drawing.Size(107, 23);
-            this.조건식가져오기.TabIndex = 1;
-            this.조건식가져오기.Text = "조건식 가져오기";
-            this.조건식가져오기.UseVisualStyleBackColor = true;
-            this.조건식가져오기.Click += new System.EventHandler(this.onClick조건식가져오기);
+            this.axKHOpenAPI1.Enabled = true;
+            this.axKHOpenAPI1.Location = new System.Drawing.Point(13, 12);
+            this.axKHOpenAPI1.Name = "axKHOpenAPI1";
+            this.axKHOpenAPI1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axKHOpenAPI1.OcxState")));
+            this.axKHOpenAPI1.Size = new System.Drawing.Size(136, 42);
+            this.axKHOpenAPI1.TabIndex = 0;
+            // 
+            // bannerAds1
+            // 
+            this.bannerAds1.ApplicationId = null;
+            this.bannerAds1.BackColor = System.Drawing.Color.White;
+            this.bannerAds1.HeightAd = 0;
+            this.bannerAds1.Location = new System.Drawing.Point(13, 103);
+            this.bannerAds1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.bannerAds1.Name = "bannerAds1";
+            this.bannerAds1.Size = new System.Drawing.Size(728, 90);
+            this.bannerAds1.TabIndex = 2;
+            this.bannerAds1.WidthAd = 0;
             // 
             // Kiwoom
             // 
-            this.ClientSize = new System.Drawing.Size(833, 412);
-            this.Controls.Add(this.조건식가져오기);
+            this.ClientSize = new System.Drawing.Size(763, 197);
+            this.Controls.Add(this.bannerAds1);
             this.Controls.Add(this.로그인버튼);
             this.Controls.Add(this.axKHOpenAPI1);
             this.Name = "Kiwoom";
+            this.Load += new System.EventHandler(this.Kiwoom_Load);
             ((System.ComponentModel.ISupportInitialize)(this.axKHOpenAPI1)).EndInit();
             this.ResumeLayout(false);
 
@@ -80,7 +83,7 @@
 
         private AxKHOpenAPILib.AxKHOpenAPI axKHOpenAPI1;
         private System.Windows.Forms.Button 로그인버튼;
-        private System.Windows.Forms.Button 조건식가져오기;
+        private AdsJumboWinForm.BannerAds bannerAds1;
     }
 }
 

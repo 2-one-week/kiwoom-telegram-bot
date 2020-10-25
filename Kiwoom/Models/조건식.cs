@@ -20,7 +20,7 @@ namespace Kiwoom.Models
         public string 이름 { get; set; }
 
         public Boolean 실시간등록여부 = false;
-        public double lasRequestTime;
+        public string 화면번호;
 
 
         public static 조건식[] CreateInstances(AxKHOpenAPILib.AxKHOpenAPI api, AxKHOpenAPILib._DKHOpenAPIEvents_OnReceiveConditionVerEvent e)
