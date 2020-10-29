@@ -18,40 +18,60 @@ namespace Kiwoom
     {
         private KiwoomManager kiwoom;
         private TelegramManager bot;
-        private String api;
- 
-
-
 
         public Kiwoom()
         {
-            InitializeComponent();
+            try {
+                InitializeComponent();
 
-            System.Net.ServicePointManager.SecurityProtocol |= System.Net.SecurityProtocolType.Tls11 | System.Net.SecurityProtocolType.Tls12;
+                System.Net.ServicePointManager.SecurityProtocol |= System.Net.SecurityProtocolType.Tls11 | System.Net.SecurityProtocolType.Tls12;
 
-            kiwoom = new KiwoomManager(this.axKHOpenAPI1);
-            //bot = new TelegramManager("1345119034:AAEvGVBDn0vAHEm720Rb-sA-COgTzN6yb3A");
-            bot = new TelegramManager("1342784362:AAGwyO_SMPawMNvV1b8YsuXSyQUjE4FZNgk");
-
+                kiwoom = new KiwoomManager(this.axKHOpenAPI1);
+                //bot = new TelegramManager("1345119034:AAEvGVBDn0vAHEm720Rb-sA-COgTzN6yb3A");
+                bot = new TelegramManager("1342784362:AAGwyO_SMPawMNvV1b8YsuXSyQUjE4FZNgk");
+            }
+            catch (Exception Ex)
+            {
+                Console.WriteLine(Ex);
+            }
+            
         }
 
+        public void AddLog(string message)
+        {
+            try { this.log.Items.Add(message); }
+            catch (Exception Ex)
+            {
+                Console.WriteLine(Ex);
+            }
+            
+        }
 
         private void onClick로그인버튼(object sender, EventArgs e)
         {
-           kiwoom.CommConnect();
-        }
-
-        private void onClick조건식가져오기(object sender, EventArgs e)
-        {
-            kiwoom.GetUserJogun();
+            try { 
+                kiwoom.CommConnect();
+                this.log.Items.Add("로그인 했음.");
+            }
+            catch (Exception Ex)
+            {
+                Console.WriteLine(Ex);
+            }
+            
         }
 
         private void Kiwoom_Load(object sender, EventArgs e)
         {
-            kiwoom.LinkWithTelegram(bot);
-            bot.LinkWithKiwoom(kiwoom);
-
-            bannerAds1.ShowAd(728, 90, "7gq1czmtoxew");
+            try {
+                kiwoom.LinkWithTelegram(bot);
+                bot.LinkWithKiwoom(kiwoom);
+            }
+            catch (Exception Ex)
+            {
+                Console.WriteLine(Ex);
+            }
+            
+           // bannerAds1.ShowAd(728, 90, "7gq1czmtoxew");
         }
     }
 }
