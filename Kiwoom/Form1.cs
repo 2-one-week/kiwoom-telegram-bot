@@ -14,8 +14,9 @@ using AdsJumboWinForm;
 
 namespace Kiwoom
 {
-    public partial class Kiwoom : Form
+    public partial class Kiwoom :Form
     {
+        public static Kiwoom kiwoomform;
         private KiwoomManager kiwoom;
         private TelegramManager bot;
 
@@ -23,12 +24,19 @@ namespace Kiwoom
         {
             try {
                 InitializeComponent();
-
+                kiwoomform = this;
                 System.Net.ServicePointManager.SecurityProtocol |= System.Net.SecurityProtocolType.Tls11 | System.Net.SecurityProtocolType.Tls12;
 
                 kiwoom = new KiwoomManager(this.axKHOpenAPI1);
+
+                //현규
                 //bot = new TelegramManager("1345119034:AAEvGVBDn0vAHEm720Rb-sA-COgTzN6yb3A");
-                bot = new TelegramManager("1342784362:AAGwyO_SMPawMNvV1b8YsuXSyQUjE4FZNgk");
+
+                //한주
+                //bot = new TelegramManager("1342784362:AAGwyO_SMPawMNvV1b8YsuXSyQUjE4FZNgk");
+
+                //대문
+                bot = new TelegramManager("1404101411:AAG9gwMdiBZennCRruDmNAeCMcVxbomz65M");
             }
             catch (Exception Ex)
             {
@@ -51,7 +59,6 @@ namespace Kiwoom
         {
             try { 
                 kiwoom.CommConnect();
-                this.log.Items.Add("로그인 했음.");
             }
             catch (Exception Ex)
             {

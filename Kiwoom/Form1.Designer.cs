@@ -31,57 +31,54 @@ namespace Kiwoom
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Kiwoom));
-            this.로그인버튼 = new System.Windows.Forms.Button();
             this.axKHOpenAPI1 = new AxKHOpenAPILib.AxKHOpenAPI();
-            this.log = new System.Windows.Forms.ListBox();
             this.프로그램타이틀 = new System.Windows.Forms.Label();
+            this.로그인버튼 = new MetroFramework.Controls.MetroButton();
+            this.log = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.axKHOpenAPI1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // 로그인버튼
-            // 
-            this.로그인버튼.Location = new System.Drawing.Point(199, 12);
-            this.로그인버튼.Name = "로그인버튼";
-            this.로그인버튼.Size = new System.Drawing.Size(93, 31);
-            this.로그인버튼.TabIndex = 1;
-            this.로그인버튼.Text = "로그인";
-            this.로그인버튼.UseVisualStyleBackColor = true;
-            this.로그인버튼.Click += new System.EventHandler(this.onClick로그인버튼);
             // 
             // axKHOpenAPI1
             // 
             this.axKHOpenAPI1.Enabled = true;
-            this.axKHOpenAPI1.Location = new System.Drawing.Point(212, 143);
+            this.axKHOpenAPI1.Location = new System.Drawing.Point(12, 21);
             this.axKHOpenAPI1.Name = "axKHOpenAPI1";
             this.axKHOpenAPI1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axKHOpenAPI1.OcxState")));
             this.axKHOpenAPI1.Size = new System.Drawing.Size(80, 22);
             this.axKHOpenAPI1.TabIndex = 0;
             // 
-            // log
-            // 
-            this.log.FormattingEnabled = true;
-            this.log.ItemHeight = 24;
-            this.log.Location = new System.Drawing.Point(12, 61);
-            this.log.Name = "log";
-            this.log.Size = new System.Drawing.Size(280, 76);
-            this.log.TabIndex = 2;
-            // 
             // 프로그램타이틀
             // 
             this.프로그램타이틀.AutoSize = true;
-            this.프로그램타이틀.Location = new System.Drawing.Point(12, 19);
+            this.프로그램타이틀.Location = new System.Drawing.Point(269, 21);
             this.프로그램타이틀.Name = "프로그램타이틀";
-            this.프로그램타이틀.Size = new System.Drawing.Size(149, 24);
+            this.프로그램타이틀.Size = new System.Drawing.Size(65, 12);
             this.프로그램타이틀.TabIndex = 3;
-            this.프로그램타이틀.Text = "생활비벌자~";
+            this.프로그램타이틀.Text = "생활비벌자";
+            // 
+            // 로그인버튼
+            // 
+            this.로그인버튼.Location = new System.Drawing.Point(510, 12);
+            this.로그인버튼.Name = "로그인버튼";
+            this.로그인버튼.Size = new System.Drawing.Size(96, 31);
+            this.로그인버튼.TabIndex = 4;
+            this.로그인버튼.Text = "로그인버튼";
+            // 
+            // log
+            // 
+            this.log.FormattingEnabled = true;
+            this.log.ItemHeight = 12;
+            this.log.Location = new System.Drawing.Point(12, 61);
+            this.log.Name = "log";
+            this.log.Size = new System.Drawing.Size(594, 628);
+            this.log.TabIndex = 2;
             // 
             // Kiwoom
             // 
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(304, 173);
+            this.ClientSize = new System.Drawing.Size(609, 706);
+            this.Controls.Add(this.로그인버튼);
             this.Controls.Add(this.프로그램타이틀);
             this.Controls.Add(this.log);
-            this.Controls.Add(this.로그인버튼);
             this.Controls.Add(this.axKHOpenAPI1);
             this.Name = "Kiwoom";
             this.Load += new System.EventHandler(this.Kiwoom_Load);
@@ -94,9 +91,9 @@ namespace Kiwoom
         #endregion
 
         private AxKHOpenAPILib.AxKHOpenAPI axKHOpenAPI1;
-        private System.Windows.Forms.Button 로그인버튼;
-        public System.Windows.Forms.ListBox log;
         private System.Windows.Forms.Label 프로그램타이틀;
+        private MetroFramework.Controls.MetroButton 로그인버튼;
+        public System.Windows.Forms.ListBox log;
     }
 }
 

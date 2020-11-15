@@ -20,6 +20,7 @@ namespace Kiwoom.Models
         public string 이름 { get; set; }
 
         public Boolean 실시간등록여부 = false;
+        public Boolean 호가알림 = false;
         public string 화면번호;
 
 

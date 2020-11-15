@@ -24,10 +24,14 @@ namespace Kiwoom.Network
         private TelegramBotClient bot;
         private KiwoomManager kiwoom;
         //한주
-        private long Admin = 1304601666;
+        //private long Admin = 1304601666;
 
         //현규
         //private long Admin = 1035537988;
+
+        //대문
+        private long Admin = 1035886891;
+
         private ChatId chatId = null;
         private List<ChatId> users = new List<ChatId>();
 
@@ -197,21 +201,47 @@ namespace Kiwoom.Network
                     return;
                 }
 
+                else if ((Regex.IsMatch(message.Text, "/호가실행 [0-9]+")))
+                {
+                    if (message.Chat.Id != Admin)
+                    {
+                        await SendMessageToPeople(message.Chat.Id, "권한이 없습니다.");
+                        return;
+                    }
+                    kiwoom.StartHoga(Admin, int.Parse(Regex.Replace(message.Text, "/호가실행 ", "")));
+                    return;
+                }
+
+                else if ((Regex.IsMatch(message.Text, "/호가중단 [0-9]+")))
+                {
+                    if (message.Chat.Id != Admin)
+                    {
+                        await SendMessageToPeople(message.Chat.Id, "권한이 없습니다.");
+                        return;
+                    }
+                    kiwoom.StopHoga(Admin, int.Parse(Regex.Replace(message.Text, "/호가중단 ", "")));
+                    return;
+                }
+
                 else if (message.Text.StartsWith("/help") || message.Text.StartsWith("/start") || message.Text.StartsWith("/시작") || message.Text.StartsWith("/도움말") || message.Text.StartsWith("/명령어"))
                 {
-                    String 도움말 = "[생활비 벌자 명령어]\n\n";
+                    String 도움말 = "[대문그램 명령어]\n\n";
                     도움말 += "[연결 및 로그인 관련]\n";
                     도움말 += "'/로그인' : 자신의 컴퓨터로 로그인하도록 명령합니다.\n";
                     도움말 += "'/연결상태' : 자신의 컴퓨터와 키움 OpenApi의 연결상태를 알려준다.\n";
                     도움말 += "'/알림시작' : Telegram 알림을 시작합니다\n'/알림종료' : Telegram 알림을 종료합니다.\n\n";
 
                     도움말 += "[조건식 관련]\n";
-                    도움말 += "'/조건식 /조건식리스트' : 사용자가 HTS에 등록해둔 조건식을 불러온다.\n";
+                    도움말 += "'/조건식 /조건식리스트' : 사용자가 HTS에 등록해둔 조건식을 불러온다. 현재 감시중인 조건식을 알 수 있다.\n";
                     도움말 += "'/감시 /감시리스트' : 사용자가 실시간 감지를 실행한 조건식을 불러온다.\n";
                     도움말 += "'/실행 (조건식 번호)' : 해당 조건식 번호 조건식의 실시간 감지를 실행한다.\nex) /실행 2\n";
                     도움말 += "'/중단 (조건식 번호)' : 해당 조건식 번호 조건식의 실시간 감지를 중단한다.\nex) /중단 2\n\n";
+
+                    도움말 += "'/호가실행 (조건식 번호)' : 해당 조건식 번호 조건식의 실시간 편입시에 호가 알림을 실행한다.\nex) /호가실행 2\n";
+                    도움말 += "'/호가중단 (조건식 번호)' : 해당 조건식 번호 조건식의 실시간 편입시에 호가 알림을 중단한다.\nex) /호가중단 2\n\n";
+
                     도움말 += "$$주의$$\n";
-                    도움말 += "'*알림을 받고 싶다면, 항상 '/알림시작'을 해주세요!*'\n\n";
+                    도움말 += "'알림을 받고 싶다면, 항상 '/알림시작'을 해주세요!'\n\n";
                     도움말 += "$$꿀팁$$\n";
                     도움말 += "조건식을 불러오기 귀찮다면, /실행 (숫자)를 두번 실행하자.";
                     await SendMessageToPeople(message.Chat.Id,도움말);
@@ -231,18 +261,17 @@ namespace Kiwoom.Network
                         await SendMessageToPeople(message.Chat.Id,"키움과 연결되어 있습니다.");
                     }
                 }
-
-                else if(chatId != null)
+                else if (message.Text.StartsWith("/관리자"))
                 {
-                    await SendMessageToPeople(message.Chat.Id, "잘못된 명령어 입니다.\n다시 입력해 주세요!\n앞에 '/'를 붙였나 확인해주세요~");
-                }
-                else if (message.Text.StartsWith("/관리자")){
                     string botMessageText = Regex.Replace(message.Text, "/관리자 ", "[봇 관리자가 전송]\n");
+                    string 확인메세지 = "사용자들에게 다음과 같은 메세지를 보냈습니다.\n"+ botMessageText;
+                    await SendMessageToAdmin(확인메세지);
                     await SendMessageToAllExceptAdmin(botMessageText);
                 }
+
                 else
                 {
-                    await SendMessageToPeople(message.Chat.Id, "로그인이 필요합니다.");
+                    await SendMessageToPeople(message.Chat.Id, "잘못된 명령어 입니다.\n다시 입력해 주세요!\n명령어가 궁금하다면 /help, /도움말, /명령어를 입력하세요.");
                 }
 
             }
