@@ -63,6 +63,7 @@ namespace Kiwoom
             this.로그인버튼.Size = new System.Drawing.Size(96, 31);
             this.로그인버튼.TabIndex = 4;
             this.로그인버튼.Text = "로그인버튼";
+            this.로그인버튼.Click += onClick로그인버튼;
             // 
             // log
             // 
@@ -86,6 +87,11 @@ namespace Kiwoom
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+
+        private void 로그인버튼_Click(object sender, System.EventArgs e)
+        {
+            throw new System.NotImplementedException();
         }
 
         #endregion

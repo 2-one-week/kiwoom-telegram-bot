@@ -27,10 +27,10 @@ namespace Kiwoom.Network
         //private long Admin = 1304601666;
 
         //현규
-        //private long Admin = 1035537988;
+        private long Admin = 1035537988;
 
         //대문
-        private long Admin = 1035886891;
+        //private long Admin = 1035886891;
 
         private ChatId chatId = null;
         private List<ChatId> users = new List<ChatId>();
@@ -225,7 +225,7 @@ namespace Kiwoom.Network
 
                 else if (message.Text.StartsWith("/help") || message.Text.StartsWith("/start") || message.Text.StartsWith("/시작") || message.Text.StartsWith("/도움말") || message.Text.StartsWith("/명령어"))
                 {
-                    String 도움말 = "[대문그램 명령어]\n\n";
+                    String 도움말 = "[CHG그램 명령어]\n\n";
                     도움말 += "[연결 및 로그인 관련]\n";
                     도움말 += "'/로그인' : 자신의 컴퓨터로 로그인하도록 명령합니다.\n";
                     도움말 += "'/연결상태' : 자신의 컴퓨터와 키움 OpenApi의 연결상태를 알려준다.\n";
