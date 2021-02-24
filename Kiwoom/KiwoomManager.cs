@@ -362,7 +362,7 @@ namespace Kiwoom
                             특정조건식감시시작string += "조건 검색식 : " + 조건식.이름 + "\n";
                             특정조건식감시시작string += "감시를 시작합니다.";
 
-                            await bot.SendMessage(특정조건식감시시작string);
+                            await bot.SendMessageToAdmin(특정조건식감시시작string);
                             return;
                         }
                     }
@@ -434,7 +434,7 @@ namespace Kiwoom
 
                 if (조건식목록 == null)
                 {
-                    await bot.SendMessageToPeople(chatid, "'/조건식리스트'를 통해 조건식을 불러오지 않았습니다.\n조건식을 불러옵니다...\n원하는 조건식을 다시 실행해주세요.");
+                    await bot.SendMessageToAdmin("'/조건식리스트'를 통해 조건식을 불러오지 않았습니다.\n조건식을 불러옵니다...\n원하는 조건식을 다시 실행해주세요.");
                     GetUserJogun(chatid);
                 }
 
@@ -576,7 +576,7 @@ namespace Kiwoom
                 }
                 
                 Thread.Sleep(1000);
-
+                
                 String 조건식목록string = "[조건식 목록]\n";
 
                 foreach (var 조건식 in 조건식목록)
@@ -601,6 +601,17 @@ namespace Kiwoom
             }
         }
 
+        public void GetJongMokInfo(long code)
+        {
+            try 
+            {
+
+            } 
+            catch (Exception Ex) 
+            { 
+                Console.WriteLine(Ex); 
+            }
+        }
 
         public void CommConnect()
         {

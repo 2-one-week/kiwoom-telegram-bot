@@ -35,8 +35,6 @@ namespace Kiwoom
                 //한주
                 //bot = new TelegramManager("1342784362:AAGwyO_SMPawMNvV1b8YsuXSyQUjE4FZNgk");
 
-                //대문
-                //bot = new TelegramManager("1404101411:AAG9gwMdiBZennCRruDmNAeCMcVxbomz65M");
             }
             catch (Exception Ex)
             {

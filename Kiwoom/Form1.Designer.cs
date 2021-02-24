@@ -35,48 +35,95 @@ namespace Kiwoom
             this.프로그램타이틀 = new System.Windows.Forms.Label();
             this.로그인버튼 = new MetroFramework.Controls.MetroButton();
             this.log = new System.Windows.Forms.ListBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.axKHOpenAPI1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // axKHOpenAPI1
             // 
             this.axKHOpenAPI1.Enabled = true;
-            this.axKHOpenAPI1.Location = new System.Drawing.Point(12, 21);
+            this.axKHOpenAPI1.Location = new System.Drawing.Point(887, 701);
             this.axKHOpenAPI1.Name = "axKHOpenAPI1";
             this.axKHOpenAPI1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axKHOpenAPI1.OcxState")));
-            this.axKHOpenAPI1.Size = new System.Drawing.Size(80, 22);
+            this.axKHOpenAPI1.Size = new System.Drawing.Size(75, 44);
             this.axKHOpenAPI1.TabIndex = 0;
             // 
             // 프로그램타이틀
             // 
             this.프로그램타이틀.AutoSize = true;
-            this.프로그램타이틀.Location = new System.Drawing.Point(269, 21);
+            this.프로그램타이틀.Font = new System.Drawing.Font("굴림", 15F);
+            this.프로그램타이틀.Location = new System.Drawing.Point(733, 18);
             this.프로그램타이틀.Name = "프로그램타이틀";
-            this.프로그램타이틀.Size = new System.Drawing.Size(65, 12);
+            this.프로그램타이틀.Size = new System.Drawing.Size(229, 40);
             this.프로그램타이틀.TabIndex = 3;
-            this.프로그램타이틀.Text = "생활비벌자";
+            this.프로그램타이틀.Text = "주파고 v2.0";
             // 
             // 로그인버튼
             // 
-            this.로그인버튼.Location = new System.Drawing.Point(510, 12);
+            this.로그인버튼.Location = new System.Drawing.Point(726, 701);
             this.로그인버튼.Name = "로그인버튼";
-            this.로그인버튼.Size = new System.Drawing.Size(96, 31);
+            this.로그인버튼.Size = new System.Drawing.Size(146, 44);
             this.로그인버튼.TabIndex = 4;
             this.로그인버튼.Text = "로그인버튼";
-            this.로그인버튼.Click += onClick로그인버튼;
             // 
             // log
             // 
             this.log.FormattingEnabled = true;
-            this.log.ItemHeight = 12;
-            this.log.Location = new System.Drawing.Point(12, 61);
+            this.log.ItemHeight = 24;
+            this.log.Location = new System.Drawing.Point(726, 72);
             this.log.Name = "log";
-            this.log.Size = new System.Drawing.Size(594, 628);
+            this.log.Size = new System.Drawing.Size(236, 604);
             this.log.TabIndex = 2;
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("굴림", 9F);
+            this.button1.Location = new System.Drawing.Point(582, 19);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(117, 43);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "추가";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("굴림", 11F);
+            this.textBox1.Location = new System.Drawing.Point(140, 19);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(421, 41);
+            this.textBox1.TabIndex = 7;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(27, 72);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 82;
+            this.dataGridView1.RowTemplate.Height = 37;
+            this.dataGridView1.Size = new System.Drawing.Size(672, 672);
+            this.dataGridView1.TabIndex = 8;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("굴림", 11F);
+            this.label1.Location = new System.Drawing.Point(31, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(103, 30);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "종목명";
             // 
             // Kiwoom
             // 
-            this.ClientSize = new System.Drawing.Size(609, 706);
+            this.ClientSize = new System.Drawing.Size(974, 782);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.로그인버튼);
             this.Controls.Add(this.프로그램타이틀);
             this.Controls.Add(this.log);
@@ -84,6 +131,7 @@ namespace Kiwoom
             this.Name = "Kiwoom";
             this.Load += new System.EventHandler(this.Kiwoom_Load);
             ((System.ComponentModel.ISupportInitialize)(this.axKHOpenAPI1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -100,6 +148,10 @@ namespace Kiwoom
         private System.Windows.Forms.Label 프로그램타이틀;
         private MetroFramework.Controls.MetroButton 로그인버튼;
         public System.Windows.Forms.ListBox log;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label label1;
     }
 }
 

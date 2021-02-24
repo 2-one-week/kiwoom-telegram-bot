@@ -29,9 +29,6 @@ namespace Kiwoom.Network
         //현규
         private long Admin = 1035537988;
 
-        //대문
-        //private long Admin = 1035886891;
-
         private ChatId chatId = null;
         private List<ChatId> users = new List<ChatId>();
 
